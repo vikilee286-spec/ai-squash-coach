@@ -40,7 +40,7 @@ def analyze_video(video_path, prompt, key, mime_type):
         return None
 
     status_text.info("🧠 Generating tactical and technical feedback...")
-    model = genai.GenerativeModel(model_name="gemini-3-flash")
+    model = genai.GenerativeModel(model_name="gemini-2.5-flash")
     response = model.generate_content([video_file, prompt])
     status_text.success("✅ Analysis Complete!")
     return response.text
@@ -147,3 +147,4 @@ with tab_pro:
         * **Takeaway for Tony:** On aggressive front-court volleys, shorten the swing, lock the wrist, and keep the racket preparation extremely early.
 
         """)
+
