@@ -20,7 +20,7 @@ with st.sidebar:
         api_key = st.text_input("Enter Google API Key (Developer Mode)", type="password")
     
     st.success("🟢 AI Engine Online")
-    st.info("💡 Powered by Gemini Vision AI. \n\nDeveloper: Tony Gao (Class of 2031)")
+    st.info("💡 Powered by Gemini Vision AI. \n\nDeveloper: Tony Gao")
 
 # --- 4. Core Logic Function ---
 def analyze_video(video_path, prompt, key, mime_type):
@@ -101,4 +101,5 @@ if uploaded_file is not None:
                     os.remove(temp_filename)
                 except:
                     pass
+
 
