@@ -20,7 +20,7 @@ with st.sidebar:
         api_key = st.text_input("Enter Google API Key (Developer Mode)", type="password")
     
     st.success("🟢 AI Engine Online")
-    st.info("💡 Powered by Gemini Vision AI. \n\nDeveloper: Tony Gao (Class of 2031)")
+    st.info("💡 Powered by Gemini Vision AI. \n\nDeveloper: Tony Gao")
 
 # --- 4. Core Logic Function ---
 def analyze_video(video_path, prompt, key, mime_type):
@@ -40,7 +40,7 @@ def analyze_video(video_path, prompt, key, mime_type):
         return None
 
     status_text.info("🧠 Generating tactical and technical feedback...")
-    model = genai.GenerativeModel(model_name="gemini-1.5-flash-latest")
+    model = genai.GenerativeModel(model_name="gemini-3-flash")
     response = model.generate_content([video_file, prompt])
     status_text.success("✅ Analysis Complete!")
     return response.text
@@ -145,4 +145,5 @@ with tab_pro:
         * **Locked Wrist:** The wrist remains completely stable. Power is generated purely from rapid forearm rotation and slight body weight transfer.
         * **Target Fixation:** Outstanding hand-eye coordination with zero wasted movement.
         * **Takeaway for Tony:** On aggressive front-court volleys, shorten the swing, lock the wrist, and keep the racket preparation extremely early.
+
         """)
