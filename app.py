@@ -67,13 +67,20 @@ with tab_solo:
                 st.video(uploaded_file)
             
             default_prompt = """
-            Act as an elite squash coach analyzing this practice footage.
-            Please focus your analysis on:
-            1. Racket preparation (Is it early and high enough?)
-            2. Movement to and from the T-zone (Footwork efficiency).
-            3. Shot selection and balance through the strike.
-            Provide 3 concise, highly actionable bullet points for improvement.
+            Act as an elite squash biomechanics analyst. You MUST base your analysis STRICTLY on the visual evidence in this specific video. Do not use generic squash cliches.
+
+            Step 1: Visual Confirmation (Prove you watched the video)
+            Briefly describe the player's clothing colors and the specific type of shot/drill they are performing in this exact footage.
+
+            Step 2: Biomechanical Critique
+            Based ONLY on the movement shown, provide 2-3 specific observations regarding:
+            - The exact timing of their racket preparation relative to the ball's bounce.
+            - Their specific footwork pattern (e.g., crossover step, lunge stability, or shuffle).
+            - Their balance and posture during the follow-through.
+
+            Highlight what is uniquely good or what specifically needs correction in THIS video clip.
             """
+            
             prompt = st.text_area("Coach's Instruction (Prompt)", value=default_prompt, height=180)
 
             if st.button("Start AI Analysis", type="primary"):
@@ -147,4 +154,5 @@ with tab_pro:
         * **Takeaway for Tony:** On aggressive front-court volleys, shorten the swing, lock the wrist, and keep the racket preparation extremely early.
 
         """)
+
 
