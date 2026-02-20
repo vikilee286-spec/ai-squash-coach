@@ -84,4 +84,21 @@ if uploaded_file is not None:
             if not file_extension:
                 file_extension = ".mp4"
 
-            with tempfile.Named
+        
+            with tempfile.NamedTemporaryFile(delete=False, suffix=file_extension) as tfile:
+                tfile.write(uploaded_file.read())
+                temp_filename = tfile.name
+            
+            try:
+                result = analyze_video(temp_filename, prompt, api_key, uploaded_file.type)
+                if result:
+                    st.markdown("### 📋 AI Scouting Report")
+                    st.markdown(result)
+            except Exception as e:
+                st.error(f"An error occurred: {e}")
+            finally:
+                try:
+                    os.remove(temp_filename)
+                except:
+                    pass
+
